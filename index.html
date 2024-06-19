@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Plyr Code Generator</title>
+  <script type="text/javascript">
+    function generateCode() {
+      var fileurl = document.getElementById("file").value;
+      var imageurl = document.getElementById("image").value;
+      var closeScriptTag = document.getElementById("closeScriptTag").value;
+
+      var htmlCode = '<!DOCTYPE html>\n';
+      htmlCode += '<html lang="en">\n\
+<head>\n\
+  <title>Spacetoon links Plyr Video Player</title>\n\
+  <link rel="stylesheet" href="https://rawcdn.githack.com/spacetoonlinks/hosting/ac7b6119ae21258b9f680a092fb75eca5a7c58c6/plyr%20Video%20Player/plyr_00.css" />\n\
+  <link rel="stylesheet" href="https://rawcdn.githack.com/spacetoonlinks/hosting/ac7b6119ae21258b9f680a092fb75eca5a7c58c6/plyr%20Video%20Player/plyr_01.css" />\n\
+  <script src="https://rawcdn.githack.com/spacetoonlinks/hosting/ac7b6119ae21258b9f680a092fb75eca5a7c58c6/plyr%20Video%20Player/polyfilled.js">'+closeScriptTag+'\n\
+  <style type="text/css">\n\
+  .container {\n\
+  margin: 50px auto;\n\
+  max-width: 500px;\n\
+   }\n\
+  </style>\n\
+</head>\n\
+<body>\n\
+  <video poster="' + imageurl + '" class="js-player">\n\
+  <source src="' + fileurl + '"/>\n\
+  </video>\n\
+  <script src="https://rawcdn.githack.com/spacetoonlinks/hosting/ac7b6119ae21258b9f680a092fb75eca5a7c58c6/plyr%20Video%20Player/plyr.js">\n\
+  '+closeScriptTag+'\n\
+  <script src="https://rawcdn.githack.com/spacetoonlinks/hosting/b371db2ecdd953c38424be140e36ef4997378b0e/plyr%20Video%20Player/plyr_00.js">\n\
+  '+closeScriptTag+'\n\
+</body>';
+      htmlCode += '</html>';
+
+      document.getElementById("codeDisplay").textContent = htmlCode;
+      document.getElementById("popupWindow").style.display = "block";
+    }
+
+    function copyCode() {
+      var htmlCode = document.getElementById("codeDisplay").textContent;
+
+      navigator.clipboard.writeText(htmlCode).then(function() {
+        alert("HTML code copied to clipboard!");
+      }, function() {
+        alert("Failed to copy code to clipboard.");
+      });
+    }
+
+    function closePopup() {
+      document.getElementById("popupWindow").style.display = "none";
+    }
+  </script>
+
+  <style type="text/css">
+    /* General styles */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      padding-top: 0px;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #3368ff;
+      color: white;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      background-color: rgba(0, 0, 0, 0.8);
+      width: 100%;
+      height: 100%;
+      display: none;
+      padding-top: 80px;
+    }
+
+    .popup-content {
+      background-color: white;
+      margin: auto;
+      padding: 20px;
+      border-radius: 5px;
+      max-width: 500px;
+      max-height: 80%;
+      overflow-y: auto;
+      text-align: center;
+      position: relative;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media only screen and (min-width: 768px) {
+      /* Apply styles for screens larger than 768px */
+      input[type="text"] {
+        width: 70%;
+        margin-right: 15px;
+        margin-bottom: 0;
+      }
+
+      label {
+        display: inline-block;
+        margin-right: 15px;
+        margin-bottom: 0;
+      }
+
+      button {
+        margin-bottom: 0;
+      }
+    }
+
+   .logo-alt {
+    display: flex;
+    justify-content: center; /* Centers items horizontally */
+    align-items: center; /* Centers items vertically */
+    height: 100px; /* Adjust height as needed */
+    }
+
+  .logo-alt img {
+   max-width: 100%;
+   height: auto;
+   padding: 12em;
+   }
+  </style>
+</head>
+<body>
+<div class="logo-alt">
+          <a href="/">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhORGEGhyfBVJybuSaJ6hWMWPBzRLEsDqrJzPSr6SYujba-FSsRaG0f9Pxcx1ZypphAUAbAKpfIRCVmr5qqfK89EAhK7bqQqe96eJ_xspcyV2hEuiofBvRj2xwKCz-vC5IGVcfn1u4mlVROB0D0HzuTBTqVJ9d3_GWubtiay8J8Tz1jNZAs6Aa0zIxxlLk/s1600/plyr.png">
+          </a>
+        </div><br>
+
+
+  <div style="text-align: center;">
+    <label for="file">file:</label><br>
+    <input type="text" id="file" placeholder="https://ia800509.us.archive.org/33/items/ypgr-s-2-e-1/YPGR-S2-E1.mp4"><br><br>
+    <label for="image">image:</label><br>
+    <input type="text" id="image" placeholder="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhRTVPbKtxKtcZ_c6LhbK8b8-4EiahaEA72Es5u0pvp6AEXIQZXNi8R1DfJil_snaOD1G42yq9_4ggdPeBAFQI-5MLSTE8HIVDS5dwlM3eIkviIoxXtRgEfEaGhVyi_uqwRdLGrUOCZtiaKBrd1MI0Xtf7dOdJTkEO0o8Runl6xpelPb4g9i_XhbaXr46s/s1600/rider2.webp"><br><br>
+    <label for="closeScriptTag">closeScriptTag:</label><br>
+    <input type="text" id="closeScriptTag" placeholder="</script>"><br><br>
+    <button onclick="generateCode()">Generate HTML Code</button>
+  </div>
+  <div class="popup" id="popupWindow">
+    <div class="popup-content">
+      <span class="close-button" onclick="closePopup()">&times;</span>
+      <h2>Generated HTML Code:</h2>
+      <pre id="codeDisplay"></pre>
+      <button onclick="copyCode()">Copy HTML Code</button>
+    </div>
+  </div>
+</body>
+</html>
